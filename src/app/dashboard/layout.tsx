@@ -22,7 +22,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
         <div className="grid grid-cols-12 h-screen">
             <Aside />
             <div className="col-start-3 col-end-13  overflow-y-auto">
-                <header className="border-b border-border h-14 sticky top-0 bg-white flex justify-between items-center px-4">
+                <header className="border-b border-border h-14 sticky top-0 bg-background flex justify-between items-center px-4">
                     <div className="font-semibold uppercase">Admin Portal</div>
                     <div className="w-[30%]">
                         <GlobalSearch />
