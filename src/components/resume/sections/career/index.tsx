@@ -25,10 +25,10 @@ export default function CareerHighlights() {
                                 Become a core part of a team that worked on a
                                 Claims Processing Management System(Flip) that
                                 {"'"}s in use by five major Insurance companies.
-                                The application aids companies have visibility
-                                of the entire claim processing chain as well as
-                                save on cost by receiving quotations from a
-                                wider pool of Service Providers.
+                                The application aids companies to have
+                                visibility of the entire claim processing chain
+                                as well as save on cost by receiving quotations
+                                from a wider pool of Service Providers.
                             </p>
                             <ul className="px-4 space-y-1.5">
                                 <BulletedList>
@@ -41,15 +41,16 @@ export default function CareerHighlights() {
                                 </BulletedList>
                                 <BulletedList>
                                     <p>
-                                        Handle technical issues escalated by the
-                                        support team.
+                                        Contributed to growth of the product
+                                        from a customer base of one to a
+                                        customer base of ten Insurance companies
                                     </p>
                                 </BulletedList>
 
                                 <BulletedList>
                                     <p>
-                                        Helped implement new features as
-                                        requested by the clients
+                                        Anlyzed requirements to convert them
+                                        into new features as request by cleints
                                     </p>
                                 </BulletedList>
 

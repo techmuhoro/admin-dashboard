@@ -9,13 +9,8 @@ export default function ResumeHeader() {
                     James Muhoro
                 </h1>
                 <p className="text-lg font-medium">
-                    Frontend developer | Fullstack Software Engineer
+                    Angular | Frontend developer | Fullstack Software Engineer
                 </p>
-
-                {/* <p className="text-lg  ">
-                            {'<'}Frontend{'>'} {'|'} {'<'} Fullstack Developer{' '}
-                            {'>'}
-                        </p> */}
             </div>
             <div className="flex items-center justify-between text-muted-foreground">
                 <Link

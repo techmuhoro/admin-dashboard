@@ -12,7 +12,7 @@ import References from '@/components/resume/sections/references';
 export default function Page() {
     return (
         <div>
-            <div className="border mx-auto w-[840px] px-4 text-foreground space-y-3">
+            <div className="mx-auto w-[840px]  text-foreground space-y-3">
                 {/*Header */}
                 <ResumeHeader />
 
