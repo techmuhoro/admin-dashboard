@@ -24,6 +24,7 @@ interface PaginationProps {
     rowsPerPage: number;
     baseUrl: string;
     searchParams: string;
+    count: number;
 }
 
 export default function Pagination({
@@ -32,19 +33,33 @@ export default function Pagination({
     rowsPerPage,
     baseUrl,
     searchParams,
+    count,
 }: PaginationProps) {
     function handleRowPerPageChange(value: string) {
         const newParams = new URLSearchParams({
             ...convertStringParamsToObject(searchParams),
             rowsPerPage: value,
+            page: '1', // reset to page one
         }).toString();
 
         redirect(`${baseUrl}/?${newParams}`);
     }
 
     function getPaginationLink(page: number) {
-        return '';
+        const newParams = new URLSearchParams({
+            ...convertStringParamsToObject(searchParams),
+            page: page.toString(),
+        }).toString();
+
+        return `${baseUrl}/?${newParams}`;
     }
+
+    function getPaginationLabel() {
+        const start = (currentPage - 1) * rowsPerPage + 1;
+        const end = currentPage * rowsPerPage;
+        return `${start} - ${end} of ${count}`;
+    }
+
     return (
         <div className="flex items-center justify-end gap-x-4 mt-2">
             <div className="flex items-center gap-x-2">
@@ -87,7 +102,7 @@ export default function Pagination({
                     </Link>
                 </div>
                 <span className="-mt-1 inline-block rounded px-3 py-2 hover:bg-muted">
-                    1
+                    {getPaginationLabel()}
                 </span>
                 <div>
                     <Link

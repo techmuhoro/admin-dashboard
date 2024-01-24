@@ -1,4 +1,4 @@
-import { BreabcrumbItem, Breadcrumbs } from '@/components/Breadcrumbs';
+import { BreabcrumbItem, Breadcrumbs } from '@/components/ui/breadcrumbs';
 import { Gauge } from 'lucide-react';
 import ReusableTable from '@/components/table/reusable-table';
 import { getUsers, getUsersCount } from '@/db/users';

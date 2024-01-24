@@ -43,7 +43,7 @@ export const asideMenuItems: AsideMenuItem[] = [
         id: '4',
         label: 'Events',
         icon: <CalendarClock size={16} />,
-        to: '/dashboard',
+        to: '/dashboard/events',
     },
     {
         id: '5',

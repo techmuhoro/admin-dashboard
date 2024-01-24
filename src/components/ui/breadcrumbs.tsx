@@ -6,7 +6,7 @@ function Breadcrumbs({
     separator = '/',
 }: {
     children: React.ReactNode;
-    separator?: string;
+    separator?: string | React.ReactNode;
 }) {
     const lastIndex = React.Children.count(children) - 1;
 
