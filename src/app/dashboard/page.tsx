@@ -1,19 +1,23 @@
-import { Button } from '@/components/ui/button';
+import DashboardContentWrapper from '@/components/dashboard-content-wrapper';
+import { Gauge } from 'lucide-react';
+import ShortStats from '@/features/dashboard/short-stats';
+import DashboardGraphs from '@/features/dashboard/graphs';
 
 export default function Page() {
     return (
-        <div className="space-y-10 p-4">
-            <Button>Hello</Button>
-            <div className="border border-border w-48 h-36 bg-background"></div>
-            <div className="border border-border w-48 h-36 bg-accent flex items-center justify-center">
-                <p className="text-accent-foreground">Hello</p>
+        <DashboardContentWrapper
+            breadcrumbsItems={[
+                {
+                    label: 'Dashboard',
+                    icon: <Gauge size={16} />,
+                    link: '/dashboard',
+                },
+            ]}
+        >
+            <div className="space-y-4">
+                <ShortStats />
+                <DashboardGraphs />
             </div>
-
-            <div className="w-48 h-36 bg-secondary border flex items-center justify-center text-secondary-foreground">
-                <p>Hello</p>
-            </div>
-
-            {/* <div className="w-48 h-36 bg-card border border-border"></div> */}
-        </div>
+        </DashboardContentWrapper>
     );
 }

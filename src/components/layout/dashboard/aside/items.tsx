@@ -31,7 +31,7 @@ export const asideMenuItems: AsideMenuItem[] = [
         id: '2',
         label: 'Bookings',
         icon: <BookOpenCheck size={16} />,
-        to: '/dashboard',
+        to: '/dashboard/bookings',
     },
     {
         id: '3',
