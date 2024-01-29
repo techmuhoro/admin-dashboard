@@ -12,6 +12,8 @@ import Aside from '@/components/layout/dashboard/aside';
 import { ChevronDown } from 'lucide-react';
 import Notifications from '@/components/layout/dashboard/header/notifications';
 import GlobalSearch from '@/components/layout/dashboard/header/global-search';
+import { Toaster } from '@/components/ui/toaster';
+import HamburgerMenu from '@/components/layout/dashboard/header/hamburger-button';
 
 interface DashboardLayoutProps {
     children: React.ReactNode;
@@ -23,7 +25,10 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
             <Aside />
             <div className="col-start-3 col-end-13  overflow-y-auto">
                 <header className="border-b border-border z-50 h-14 sticky top-0 bg-background flex justify-between items-center px-4">
-                    <div className="font-semibold uppercase">Admin Portal</div>
+                    <div className="flex items-center">
+                        <HamburgerMenu />
+                        <p className="font-semibold uppercase">Admin Portal</p>
+                    </div>
                     <div className="w-[30%]">
                         <GlobalSearch />
                     </div>
@@ -34,6 +39,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                     </div>
                 </header>
                 <main>{children}</main>
+                <Toaster />
             </div>
         </div>
     );

@@ -3,7 +3,7 @@ import CustomBreadcrumb, {
     BreadcrumbItem,
 } from '@/components/CustomBreadcrumb';
 
-export default function DashboardContentWrapper({
+export default async function DashboardContentWrapper({
     children,
     breadcrumbsItems,
 }: {

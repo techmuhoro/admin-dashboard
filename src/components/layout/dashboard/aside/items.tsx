@@ -8,6 +8,7 @@ import {
     BookOpenCheck,
     ChevronRight,
     ChevronDown,
+    StickyNote,
 } from 'lucide-react';
 
 export type AsideMenuItem = {
@@ -45,6 +46,31 @@ export const asideMenuItems: AsideMenuItem[] = [
         icon: <CalendarClock size={16} />,
         to: '/dashboard/events',
     },
+
+    {
+        id: '4',
+        label: 'Pages',
+        icon: <StickyNote size={16} />,
+        links: [
+            {
+                id: '4-1',
+                label: 'Auth',
+                links: [
+                    {
+                        id: '4-1-1',
+                        label: 'Login',
+                        to: '/dashboard',
+                    },
+                    {
+                        id: '4-1-2',
+                        label: 'Login',
+                        to: '/dashboard',
+                    },
+                ],
+            },
+        ],
+    },
+
     {
         id: '5',
         label: 'Components',
@@ -83,25 +109,12 @@ export const asideMenuItems: AsideMenuItem[] = [
                 id: '6-1',
                 label: 'User',
                 to: '/setting/uam/users',
-                links: [
-                    {
-                        id: '6-1-1',
-                        label: 'Vies users',
-                        to: '',
-                    },
-
-                    {
-                        id: '6-1-2',
-                        label: 'Create users',
-                        to: '',
-                    },
-                ],
             },
             {
                 id: '6-2',
 
                 label: 'Roles',
-                to: '/setting/uam/roles',
+                to: '/dashboard/uam/roles',
             },
             {
                 id: '6-3',

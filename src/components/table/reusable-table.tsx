@@ -30,6 +30,7 @@ interface ReusableTableProps<T> {
     rowsPerPage: number;
     baseUrl: string;
     searchParams: string;
+    paginate?: boolean;
 }
 export default function ReusableTable<T>({
     columns,
@@ -40,6 +41,7 @@ export default function ReusableTable<T>({
     rowsPerPage,
     baseUrl,
     searchParams,
+    paginate = true,
 }: ReusableTableProps<T>) {
     return (
         <div>
@@ -69,16 +71,18 @@ export default function ReusableTable<T>({
                 </TableBody>
             </Table>
 
-            <div className="flex items-center justify-end gap-x-4">
-                <Pagination
-                    currentPage={currentPage}
-                    totalPages={totalPages}
-                    rowsPerPage={rowsPerPage}
-                    baseUrl={baseUrl}
-                    searchParams={searchParams}
-                    count={count}
-                />
-            </div>
+            {paginate && (
+                <div className="flex items-center justify-end gap-x-4">
+                    <Pagination
+                        currentPage={currentPage}
+                        totalPages={totalPages}
+                        rowsPerPage={rowsPerPage}
+                        baseUrl={baseUrl}
+                        searchParams={searchParams}
+                        count={count}
+                    />
+                </div>
+            )}
         </div>
     );
 }
