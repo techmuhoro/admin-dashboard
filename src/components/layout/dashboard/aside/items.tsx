@@ -108,7 +108,7 @@ export const asideMenuItems: AsideMenuItem[] = [
             {
                 id: '6-1',
                 label: 'User',
-                to: '/setting/uam/users',
+                to: '/dashboard/uam/users',
             },
             {
                 id: '6-2',

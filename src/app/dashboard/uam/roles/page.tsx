@@ -4,6 +4,9 @@ import RoleAdd from './comps/role-add';
 import RoleFilter from './comps/role-filter';
 import { Button } from '@/components/ui/button';
 import RoleList from './comps/role-list';
+import Combobox from '@/components/combobox';
+import MultiCombobox from '@/components/multi-combobox';
+import UserMultiSelect from './comps/user-multi-select';
 
 export default function Roles() {
     return (
@@ -22,6 +25,8 @@ export default function Roles() {
                 <div>
                     <RoleList />
                 </div>
+
+                <UserMultiSelect />
             </div>
         </DashboardContentWrapper>
     );

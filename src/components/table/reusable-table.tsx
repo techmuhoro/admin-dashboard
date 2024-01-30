@@ -18,6 +18,7 @@ import { Download, Filter, FilterX } from 'lucide-react';
 export type TableColumn = {
     assessor: string;
     label: string;
+    visible?: boolean;
     cell?: (v: any) => any;
 };
 
@@ -48,24 +49,43 @@ export default function ReusableTable<T>({
             <Table className="border border-border">
                 <TableHeader>
                     <TableRow>
-                        {columns.map(({ label, assessor }) => (
-                            <TableHead key={`${label}-${assessor}`}>
-                                {label}
-                            </TableHead>
-                        ))}
+                        {columns.map(({ label, assessor, visible }) => {
+                            if (visible === undefined || visible === true) {
+                                return (
+                                    <TableHead key={`${label}-${assessor}`}>
+                                        {label}
+                                    </TableHead>
+                                );
+                            }
+                        })}
                     </TableRow>
                 </TableHeader>
 
                 <TableBody>
                     {data.map((item: any, index) => (
                         <TableRow key={item.id}>
-                            {columns.map(({ label, assessor, cell }) => (
-                                <TableCell key={`${label}-${assessor}`}>
-                                    {cell && typeof cell === 'function'
-                                        ? cell(item[assessor])
-                                        : item[assessor]}
-                                </TableCell>
-                            ))}
+                            {columns.map(
+                                ({ label, assessor, cell, visible }) => {
+                                    if (
+                                        visible === undefined ||
+                                        visible === true
+                                    ) {
+                                        return (
+                                            <TableCell
+                                                key={`${label}-${assessor}`}
+                                            >
+                                                {cell &&
+                                                typeof cell === 'function'
+                                                    ? cell({
+                                                          row: item,
+                                                          value: item[assessor],
+                                                      })
+                                                    : item[assessor]}
+                                            </TableCell>
+                                        );
+                                    }
+                                }
+                            )}
                         </TableRow>
                     ))}
                 </TableBody>

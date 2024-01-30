@@ -28,7 +28,7 @@ export const tableColumns: TableColumn[] = [
     {
         assessor: 'sales',
         label: 'Sales',
-        cell: value => {
+        cell: ({ value }) => {
             const formatted = new Intl.NumberFormat('en-US', {
                 currency: 'KES',
                 style: 'currency',
@@ -41,7 +41,7 @@ export const tableColumns: TableColumn[] = [
     {
         assessor: 'approved',
         label: 'Approved',
-        cell: value => {
+        cell: ({ value }) => {
             if (value === true) {
                 return (
                     <p className="flex gap-x-1 items-center">

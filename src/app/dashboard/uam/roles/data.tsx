@@ -2,12 +2,20 @@ import { type BreadcrumbItem } from '@/components/CustomBreadcrumb';
 import { Home } from 'lucide-react';
 import { type TableColumn } from '@/components/table/reusable-table';
 import { type PermissionObject } from './schema';
+import RoleActions from './comps/role-actions';
 
 export const breadcrumbItems: BreadcrumbItem[] = [
     {
         label: 'Dashboard',
         link: '/dashbaord',
         icon: <Home size={16} />,
+    },
+    {
+        label: 'Acces Control',
+    },
+    {
+        label: 'Roles',
+        link: '/dashbaord/uam/roles',
     },
 ];
 
@@ -31,6 +39,13 @@ export const columns: TableColumn[] = [
     {
         assessor: 'dateCreated',
         label: 'Date Create',
+    },
+    {
+        assessor: 'actions',
+        label: 'Actions',
+        cell: ({ row }) => {
+            return <RoleActions />;
+        },
     },
 ];
 
