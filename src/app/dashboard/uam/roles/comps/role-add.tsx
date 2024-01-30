@@ -12,6 +12,7 @@ import { RoleAddSchemaType, RoleAddSchema } from '../schema';
 import { getShapedPermissions } from '../data';
 import { zodResolver } from '@hookform/resolvers/zod';
 import FormRolePermissions from './form-role-permissions';
+import RoleForm from './actions/form';
 
 export default function RoleAdd() {
     const [modalOpen, setModalOpen] = useState<boolean>(false);
@@ -27,6 +28,7 @@ export default function RoleAdd() {
 
     function handleSubmit(values: any) {
         console.log(values);
+        alert('James muhoro, best software in the world');
     }
 
     return (
@@ -44,7 +46,10 @@ export default function RoleAdd() {
                         Fillout below form to create a role
                     </Dialog.DialogDescription>
                 </Dialog.DialogHeader>
-                <Form.Form {...form}>
+                <div>
+                    <RoleForm handleSubmit={handleSubmit} />
+                </div>
+                {/* <Form.Form {...form}>
                     <form
                         onSubmit={form.handleSubmit(handleSubmit)}
                         className="space-y-4"
@@ -94,7 +99,7 @@ export default function RoleAdd() {
                             </LoadingButton>
                         </Dialog.DialogFooter>
                     </form>
-                </Form.Form>
+                </Form.Form> */}
             </Dialog.DialogContent>
         </Dialog.Dialog>
     );

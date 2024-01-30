@@ -44,7 +44,7 @@ export const columns: TableColumn[] = [
         assessor: 'actions',
         label: 'Actions',
         cell: ({ row }) => {
-            return <RoleActions />;
+            return <RoleActions row={row} />;
         },
     },
 ];

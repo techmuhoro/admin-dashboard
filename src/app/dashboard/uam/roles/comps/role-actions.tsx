@@ -1,56 +1,41 @@
 import { Button } from '@/components/ui/button';
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuTrigger,
-    DropdownMenuSeparator,
-} from '@/components/ui/dropdown-menu';
+import * as DropdownMenu from '@/components/ui/dropdown-menu';
+import { MoreHorizontal, EyeIcon, EditIcon, TrashIcon } from 'lucide-react';
+import { RoleAddUser } from './actions/role-add-user';
+import { RoleDelete } from './actions/delete';
+import { EditRole } from './actions/edit';
+import { RoleAddSchemaType } from '../schema';
 
-import {
-    MoreHorizontal,
-    EyeIcon,
-    PlusIcon,
-    EditIcon,
-    TrashIcon,
-} from 'lucide-react';
-import RoleAddUser from './role-add-user';
-import { Dialog } from '@/components/ui/dialog';
+interface RoleActionsProps {
+    row: RoleAddSchemaType;
+}
 
-export default function RoleActions() {
+export default function RoleActions({ row }: RoleActionsProps) {
     return (
         <>
-            <DropdownMenu modal={false}>
-                <DropdownMenuTrigger asChild>
+            <DropdownMenu.DropdownMenu modal={false}>
+                <DropdownMenu.DropdownMenuTrigger asChild>
                     <Button variant="ghost" className="rounded-full">
                         <MoreHorizontal />
                     </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                    <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                    <DropdownMenuSeparator></DropdownMenuSeparator>
+                </DropdownMenu.DropdownMenuTrigger>
+                <DropdownMenu.DropdownMenuContent>
+                    <DropdownMenu.DropdownMenuLabel>
+                        Actions
+                    </DropdownMenu.DropdownMenuLabel>
+                    <DropdownMenu.DropdownMenuSeparator></DropdownMenu.DropdownMenuSeparator>
 
-                    <div className="space-y-1">
-                        <DropdownMenuItem className="flex items-center gap-x-1">
+                    <div className="space-y-1 flex flex-col">
+                        <DropdownMenu.DropdownMenuItem className="flex items-center gap-x-1">
                             <EyeIcon className="mr-2 h-4 w-4" />
                             <span>View</span>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>
-                            <RoleAddUser />
-                        </DropdownMenuItem>
-
-                        <DropdownMenuItem className="flex items-center gap-x-1">
-                            <EditIcon className="mr-2 h-4 w-4" />
-                            <span>Edit</span>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem className="flex items-center gap-x-1">
-                            <TrashIcon className="mr-2 h-4 w-4" />
-                            <span>Delete</span>
-                        </DropdownMenuItem>
+                        </DropdownMenu.DropdownMenuItem>
+                        <RoleAddUser row={row} />
+                        <EditRole row={row} />
+                        <RoleDelete row={row} />
                     </div>
-                </DropdownMenuContent>
-            </DropdownMenu>
+                </DropdownMenu.DropdownMenuContent>
+            </DropdownMenu.DropdownMenu>
         </>
     );
 }

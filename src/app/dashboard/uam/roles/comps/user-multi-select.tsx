@@ -1,20 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import {
-    Popover,
-    PopoverTrigger,
-    PopoverContent,
-} from '@/components/ui/popover';
+import * as Popover from '@/components/ui/popover';
 import { Button } from '@/components/ui/button';
 import { ChevronsUpDown } from 'lucide-react';
-import {
-    Command,
-    CommandInput,
-    CommandEmpty,
-    CommandGroup,
-    CommandItem,
-} from '@/components/ui/command';
+import * as Command from '@/components/ui/command';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { getIntials } from '@/lib/helpers';
 import { cn } from '@/lib/utils';
@@ -72,9 +62,9 @@ export default function UserMultiSelect() {
     }
 
     return (
-        <Popover>
-            <PopoverTrigger asChild>
-                <Button variant="outline" className="justify-between w-[200px]">
+        <Popover.Popover>
+            <Popover.PopoverTrigger asChild>
+                <Button variant="outline" className="justify-between w-full">
                     {`
                         ${
                             selectedUsers.length == 0
@@ -84,17 +74,19 @@ export default function UserMultiSelect() {
                     `}
                     <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                 </Button>
-            </PopoverTrigger>
+            </Popover.PopoverTrigger>
 
-            <PopoverContent>
-                <Command>
-                    <CommandInput placeholder="Start typing .." />
-                    <CommandEmpty>No available user</CommandEmpty>
-                    <CommandGroup className="space-y-2">
+            <Popover.PopoverContent>
+                <Command.Command>
+                    <Command.CommandInput placeholder="Start typing .." />
+                    <Command.CommandEmpty>
+                        No available user
+                    </Command.CommandEmpty>
+                    <Command.CommandGroup className="space-y-2 max-h-[250px] overflow-y-auto">
                         {users.map(user => (
-                            <CommandItem
+                            <Command.CommandItem
                                 key={user.id}
-                                value={user.id}
+                                value={user.name}
                                 onSelect={currentValue => {
                                     if (
                                         selectedUsers.find(
@@ -145,11 +137,11 @@ export default function UserMultiSelect() {
                                         </p>
                                     </div>
                                 </div>
-                            </CommandItem>
+                            </Command.CommandItem>
                         ))}
-                    </CommandGroup>
-                </Command>
-            </PopoverContent>
-        </Popover>
+                    </Command.CommandGroup>
+                </Command.Command>
+            </Popover.PopoverContent>
+        </Popover.Popover>
     );
 }

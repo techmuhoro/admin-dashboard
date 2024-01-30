@@ -1,13 +1,10 @@
 import {
-    HomeIcon,
     User,
     Gauge,
     CalendarClock,
     Wallet,
     Component,
     BookOpenCheck,
-    ChevronRight,
-    ChevronDown,
     StickyNote,
 } from 'lucide-react';
 
@@ -59,12 +56,12 @@ export const asideMenuItems: AsideMenuItem[] = [
                     {
                         id: '4-1-1',
                         label: 'Login',
-                        to: '/dashboard',
+                        to: '/auth/login',
                     },
                     {
                         id: '4-1-2',
-                        label: 'Login',
-                        to: '/dashboard',
+                        label: 'Register',
+                        to: '/auth/register',
                     },
                 ],
             },
