@@ -17,7 +17,10 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className={`text-accent-foreground bg-background`}>
+            <body
+                id="app_root"
+                className={`text-accent-foreground bg-background `}
+            >
                 {children}
                 <Toaster />
             </body>
